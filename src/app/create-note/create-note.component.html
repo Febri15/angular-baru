@@ -1,0 +1,7 @@
+<button (click)="toggleForm()">Create Note</button>
+
+<div *ngIf="showForm" class="form-container">
+  <form (submit)="onSubmit()">
+    <!-- Form fields go here -->
+  </form>
+</div>

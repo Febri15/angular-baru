@@ -1,5 +1,5 @@
-<h2>Testing</h2>
-
-<h3 *ngFor="let note of note$ | async">
-  <b>* {{note.description}}</b>
-</h3>
+<router-outlet></router-outlet>
+<div>
+  <app-read-notes></app-read-notes>
+  <!-- <app-update-note></app-update-note> -->
+</div>

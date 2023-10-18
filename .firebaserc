@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "testing-122d4": {
+      "hosting": {
+        "angular-baru": [
+          "testing-122d4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "testing-122d4"
+  }
+}

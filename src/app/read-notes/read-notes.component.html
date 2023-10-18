@@ -1,0 +1,19 @@
+    <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let note of notes">
+        <td>{{ note.data().description }}</td>
+        <td>
+            <!-- <button (click)="navigateToUpdate(note.id)">Update</button> -->
+            <button (click)="redirectToUpdate(note.id)">Update</button>
+            <!-- <button (click)="navigateToDelete(note.id)">Delete</button> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
