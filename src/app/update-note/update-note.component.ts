@@ -34,4 +34,8 @@ export class UpdateNoteComponent implements OnInit {
       // Opsional: Anda dapat mengarahkan atau menampilkan pesan sukses di sini
     });
   }
+
+  redirectToCreate() {
+    this.router.navigate(['/create-note']);
+  }
 }

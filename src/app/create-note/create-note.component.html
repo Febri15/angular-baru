@@ -1,7 +1,13 @@
-<button (click)="toggleForm()">Create Note</button>
+<!-- <button (click)="toggleForm()">Create Note</button> -->
 
-<div *ngIf="showForm" class="form-container">
+<div class="form-container">
   <form (submit)="onSubmit()">
-    <!-- Form fields go here -->
+    <div class="form-group">
+      <label for="description" class="label">Description :</label>
+      <input type="text" [(ngModel)]="newNote.description" name="description" class="input-field"  required>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="button">Save</button>
+    </div>
   </form>
 </div>

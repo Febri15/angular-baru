@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { FirebaseService } from './firebase.service'; // Example path, adjust as needed
+import { Router } from '@angular/router';
 
 interface Note {
   description: string;
@@ -17,7 +18,11 @@ export class AppComponent {
   public notesCollection: AngularFirestoreCollection<Note>;
   notes$: Observable<Note[]>;
 
-  constructor(public firestore: AngularFirestore, public firebaseService: FirebaseService) {
+  constructor(
+    public firestore: AngularFirestore, 
+    public firebaseService: FirebaseService,
+    private router: Router
+    ) {
     this.notesCollection = this.firestore.collection<Note>('notes');
     this.notes$ = this.notesCollection.valueChanges();
   }

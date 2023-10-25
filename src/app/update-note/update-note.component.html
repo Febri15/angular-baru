@@ -6,7 +6,8 @@
         <input type="text" id="description" name="description" [(ngModel)]="note.description" class="input-field" required>
       </div>
       <div class="form-group">
-        <button type="submit" class="button">Update Note</button>
+        <button type="submit" class="button">Update</button>
+        <button (click)="redirectToCreate()" class="button">Create</button>
       </div>
     </form>
   </div>

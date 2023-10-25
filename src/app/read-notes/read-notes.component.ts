@@ -9,6 +9,7 @@ import { FirebaseService } from '../firebase.service';
 })
 export class ReadNotesComponent implements OnInit {
   notes: any[] = [];
+  buttonClicked: boolean = false;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -26,6 +27,10 @@ export class ReadNotesComponent implements OnInit {
     this.router.navigate(['/update-note', noteId]);
   }
 
+  redirectToCreateNote() {
+    this.router.navigate(['/create-note']);
+    this.buttonClicked = true;
+  }
   // Function to navigate to update-note component
   // navigateToUpdate(id: string) {
   //   // console.log(id);
