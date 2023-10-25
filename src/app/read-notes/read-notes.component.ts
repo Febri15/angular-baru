@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; // Add this line
 import { FirebaseService } from '../firebase.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteConfirmationDialogComponent } from '../delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 @Component({
   selector: 'app-read-notes',
@@ -13,14 +15,23 @@ export class ReadNotesComponent implements OnInit {
 
   constructor(
     private firebaseService: FirebaseService,
-    private router: Router // Add this line
+    private router: Router, // Add this line
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
     // console.log("Test");
+    this.getNotes();
+  }
+
+  private getNotes() {
     this.firebaseService.getNotes().subscribe(notes => {
       this.notes = notes.docs;
     });
+  }
+
+  refreshNotes() {
+    this.getNotes(); // Reload the notes data
   }
 
   redirectToUpdate(noteId: string) {
@@ -30,6 +41,22 @@ export class ReadNotesComponent implements OnInit {
   redirectToCreateNote() {
     this.router.navigate(['/create-note']);
     this.buttonClicked = true;
+  }
+
+  onDelete(noteId: string) {
+    const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent);
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.firebaseService.deleteNote(noteId).then(() => {
+          console.log('Note deleted successfully.');
+          this.router.navigate(['/read-notes']);
+          this.refreshNotes();
+        }).catch(error => {
+          console.error('Error deleting note:', error);
+        });
+      }
+    });
   }
   // Function to navigate to update-note component
   // navigateToUpdate(id: string) {

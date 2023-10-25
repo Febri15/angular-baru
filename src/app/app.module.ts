@@ -8,9 +8,12 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { CreateNoteComponent } from './create-note/create-note.component';
 import { ReadNotesComponent } from './read-notes/read-notes.component';
 import { UpdateNoteComponent } from './update-note/update-note.component';
-import { DeleteNoteComponent } from './delete-note/delete-note.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeleteConfirmationDialogComponent } from './delete-confirmation-dialog/delete-confirmation-dialog.component';
+
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -18,12 +21,14 @@ import { AppRoutingModule } from './app-routing.module';
     CreateNoteComponent,
     ReadNotesComponent,
     UpdateNoteComponent,
-    DeleteNoteComponent
+    DeleteConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
     AngularFireAuth,
