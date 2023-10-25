@@ -1,11 +1,6 @@
 {
   "hosting": {
     "public": "dist/angular-baru",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
     "rewrites": [
       {
         "source": "**",
