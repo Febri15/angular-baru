@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; // Add this line
 import { FirebaseService } from '../firebase.service';
-import { QueryDocumentSnapshot } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-read-notes',

@@ -39,6 +39,8 @@ export class FirebaseService {
   }
 
   getNoteById(id: string): Observable<any> {
-    return this.afs.collection('notes').doc(id).valueChanges();
-  }
+    const noteDoc = this.afs.collection('notes').doc(id);
+    console.log('Note Doc:', noteDoc);
+    return noteDoc.valueChanges();
+  }  
 }

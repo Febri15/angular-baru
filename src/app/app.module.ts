@@ -10,7 +10,7 @@ import { ReadNotesComponent } from './read-notes/read-notes.component';
 import { UpdateNoteComponent } from './update-note/update-note.component';
 import { DeleteNoteComponent } from './delete-note/delete-note.component';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([])
+    AppRoutingModule
   ],
   providers: [
     AngularFireAuth,
